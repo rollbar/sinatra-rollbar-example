@@ -1,0 +1,25 @@
+PATH
+  remote: /Users/brian/rails_projects/rollbar-gem
+  specs:
+    rollbar (0.9.4)
+      multi_json (~> 1.5)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    multi_json (1.7.1)
+    rack (1.5.2)
+    rack-protection (1.5.0)
+      rack
+    sinatra (1.4.1)
+      rack (~> 1.5, >= 1.5.2)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    tilt (1.3.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rollbar!
+  sinatra

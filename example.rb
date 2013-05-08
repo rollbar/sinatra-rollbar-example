@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'rollbar'
 
+set :environment, :production
+
 configure do
   Rollbar.configure do |config|
     config.access_token = 'aaaabbbbccccddddeeeeffff00001111'
@@ -10,11 +12,11 @@ configure do
 end
 
 error do
-  # 
-  Rollbar.report_message("Custom message")
-  #
+  # To send an arbitrary message:
+  Rollbar.report_message("Something went wrong")
+  # To send the exception traceback:
   Rollbar.report_exception(env['sinatra.error'])
-  #
+  
   "error"
 end
 

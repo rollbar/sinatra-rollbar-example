@@ -4,20 +4,24 @@ require 'rollbar'
 configure do
   Rollbar.configure do |config|
     config.access_token = 'aaaabbbbccccddddeeeeffff00001111'
-    config.environment = 'sinatra-test'
+    config.environment = Sinatra::Base.environment
     config.root = Dir.pwd
   end
 end
 
+error do
+  # 
+  Rollbar.report_message("Custom message")
+  #
+  Rollbar.report_exception(env['sinatra.error'])
+  #
+  "error"
+end
+
+
+
 get '/' do
-  begin
-    foo = bar
-  rescue => e
-    Rollbar.report_exception(e)
-  end
-
-  Rollbar.report_message("test message")
-
+  raise RuntimeError, "custom message"
   "Hello world!"
 end
 

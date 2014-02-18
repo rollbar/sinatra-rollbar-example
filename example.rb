@@ -7,6 +7,7 @@ configure do
   Rollbar.configure do |config|
     config.access_token = 'aaaabbbbccccddddeeeeffff00001111'
     config.environment = Sinatra::Base.environment
+    config.framework = "Sinatra: #{Sinatra::VERSION}"
     config.root = Dir.pwd
   end
 end
@@ -18,10 +19,6 @@ class RequestDataExtractor
     extract_request_data_from_rack(env).merge({
       :route => env["PATH_INFO"]
     })
-  end
-    
-  def rollbar_request_params(env)
-    env['action_dispatch.request.parameters'] || {}
   end
 end
 

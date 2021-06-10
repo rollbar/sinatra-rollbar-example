@@ -2,8 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     multi_json (1.8.4)
-    rack (1.5.2)
-    rack-protection (1.5.0)
+    rack (1.6.13)
+    rack-protection (1.5.5)
       rack
     rollbar (0.12.10)
       multi_json (~> 1.3)
